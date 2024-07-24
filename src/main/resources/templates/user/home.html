@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Home</title>
+    <th:block th:include="fragments/header :: header"></th:block>
+</head>
+<body>
+<h1>Welcome, <span th:text="${user.name}">User</span>!</h1>
+<p>Email: <span th:text="${user.email}">user@example.com</span></p>
+<p>Roles: <span th:each="role : ${user.roles}" th:text="${role.name}">ROLE_USER</span></p>
+</body>
+</html>
