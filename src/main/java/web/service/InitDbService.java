@@ -43,6 +43,7 @@ public class InitDbService {
         Set<Role> adminRoles = new HashSet<>();
         adminRoles.add(adminRole);
         admin.setRoles(adminRoles);
+        admin.setCarId(null);
         userRepository.save(admin);
 
         User user = new User();
@@ -52,6 +53,7 @@ public class InitDbService {
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(userRole);
         user.setRoles(userRoles);
+        user.setCarId(null);
         userRepository.save(user);
     }
 }

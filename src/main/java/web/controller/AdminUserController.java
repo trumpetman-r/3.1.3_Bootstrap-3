@@ -1,6 +1,7 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -49,9 +50,9 @@ public class AdminUserController {
         return "redirect:/admin/users";
     }
 
-    @GetMapping("/delete")
-    public String deleteUser(@RequestParam("id") Long id) {
+    @DeleteMapping("/delete")
+    public ResponseEntity<Void> deleteUser(@RequestParam("id") Long id) {
         userService.deleteUser(id);
-        return "redirect:/admin/users";
+        return ResponseEntity.noContent().build();
     }
 }

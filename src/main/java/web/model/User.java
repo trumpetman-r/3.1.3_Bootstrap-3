@@ -27,6 +27,10 @@ public class User implements UserDetails {
     )
     private Set<Role> roles;
 
+    // Добавьте поле carId
+    @Column(name = "car_id", nullable = true)
+    private Long carId;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
@@ -96,5 +100,13 @@ public class User implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Long getCarId() {
+        return carId;
+    }
+
+    public void setCarId(Long carId) {
+        this.carId = carId;
     }
 }
