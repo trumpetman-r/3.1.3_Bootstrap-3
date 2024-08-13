@@ -1,12 +1,12 @@
-package web.service;
+package service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import web.model.Role;
-import web.model.User;
-import web.repository.RoleRepository;
-import web.repository.UserRepository;
+import model.Role;
+import model.User;
+import repository.RoleRepository;
+import repository.UserRepository;
 
 import javax.annotation.PostConstruct;
 import java.util.HashSet;

@@ -1,12 +1,12 @@
-package web.controller;
+package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import web.model.User;
-import web.service.UserService;
+import model.User;
+import service.UserService;
 
 @Controller
 @RequestMapping("/admin/users")

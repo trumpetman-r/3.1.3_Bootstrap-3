@@ -1,4 +1,4 @@
-package web.model;
+package model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,7 +27,6 @@ public class User implements UserDetails {
     )
     private Set<Role> roles;
 
-    // Добавьте поле carId
     @Column(name = "car_id", nullable = true)
     private Long carId;
 

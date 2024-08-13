@@ -1,11 +1,11 @@
-package web.service;
+package service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import web.model.Role;
-import web.model.User;
-import web.repository.RoleRepository;
-import web.repository.UserRepository;
+import model.Role;
+import model.User;
+import repository.RoleRepository;
+import repository.UserRepository;
 
 import java.util.HashSet;
 import java.util.List;
