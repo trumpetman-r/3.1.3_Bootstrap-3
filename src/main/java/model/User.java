@@ -1,23 +1,22 @@
 package model;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class User implements UserDetails {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String email;
+    private String username;
     private String password;
+    private String name;
+    private String surname;
+    private int age;
+    private String email;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -27,43 +26,9 @@ public class User implements UserDetails {
     )
     private Set<Role> roles;
 
-    @Column(name = "car_id", nullable = true)
-    private Long carId;
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return email;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+    @ManyToOne
+    @JoinColumn(name = "car_id")
+    private Car car;
 
     public Long getId() {
         return id;
@@ -73,12 +38,44 @@ public class User implements UserDetails {
         this.id = id;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getEmail() {
@@ -97,15 +94,11 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public Car getCar() {
+        return car;
     }
 
-    public Long getCarId() {
-        return carId;
-    }
-
-    public void setCarId(Long carId) {
-        this.carId = carId;
+    public void setCar(Car car) {
+        this.car = car;
     }
 }
